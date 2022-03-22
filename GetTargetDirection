@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GetTargetDirection : MonoBehaviour
+{
+    // This is the method used the players distance to the target
+
+    [SerializeField]
+    [Header("please put the target")]
+    private GameObject Target;
+
+    /*
+    //這個會變成驅趕
+    private void Update()
+    {
+        Vector3 target = Target.transform.position;
+        Vector3 player = this.transform.position;
+        Vector3 direction;
+        direction = (player - target).normalized;
+        Debug.Log(direction);
+
+        //transform.position += new Vector3(0.01f, 0.01f, 0.01f);
+        transform.position += new Vector3(direction.x, direction.y, direction.z)*0.01f;
+    }
+    */
+    private void Update()
+    {
+        Vector3 target = Target.transform.position;
+        Vector3 player = this.transform.position;
+        Vector3 direction;
+        direction = (target- player).normalized;
+        Debug.Log(direction);
+
+        //transform.position += new Vector3(0.01f, 0.01f, 0.01f);
+        transform.position += new Vector3(direction.x, direction.y, direction.z) * 0.01f;
+    }
+
+
+
+}
